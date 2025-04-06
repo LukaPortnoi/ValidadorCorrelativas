@@ -25,6 +25,16 @@ public class Alumno {
     }
 
 
+    public Boolean cumpleCorrelativas(Materia materia) {
+        List<Materia> materiasCorrelativas = materia.getMateriasCorrelativas();
+        for (Materia correlativa : materiasCorrelativas) {
+            if (!tieneMateriaAprobada(correlativa)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     public Boolean tieneMateriaAprobada(Materia materia) {
         return materiasAprobadas.contains(materia);

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -11,11 +12,11 @@ class IncripcionTest {
     @Test
     @DisplayName("Test de correlativas cumplidas")
     void cumpleCorrelativas1() {
-        Materia matematica = new Materia("Matematica", 3, List.of());
+        Materia matematica = new Materia("Matematica", 3, new ArrayList<>());
         Materia fisica = new Materia("Fisica", 4, List.of(matematica));
         Materia ads = new Materia("ADS", 4, List.of(fisica)) ;
         Materia analisis = new Materia("Analisis", 5, List.of(matematica,fisica));
-        Alumno alumno = new Alumno( "Juan", "Pérez", "12345678", List.of(matematica, fisica));
+        Alumno alumno = new Alumno( "Juan", "Pérez", "12345678", new ArrayList<>());
 
 
 
@@ -24,7 +25,7 @@ class IncripcionTest {
         alumno.agregarMateriaAprobada(matematica);
         alumno.agregarMateriaAprobada(fisica);
 
-        Inscripcion inscripcion = new Inscripcion(alumno, analisis);
+        Inscripcion inscripcion = new Inscripcion(alumno,new ArrayList<>() );
         inscripcion.agregarMateria(analisis);
 
         Assertions.assertTrue(inscripcion.aprobada());
@@ -33,11 +34,11 @@ class IncripcionTest {
     @Test
     @DisplayName("Test de correlativas no cumplidas")
     void cumpleCorrelativas2() {
-        Materia matematica = new Materia("Matematica", 3, List.of());
+        Materia matematica = new Materia("Matematica", 3, new ArrayList<>());
         Materia fisica = new Materia("Fisica", 4, List.of(matematica));
         Materia ads = new Materia("ADS", 4, List.of(fisica)) ;
         Materia analisis = new Materia("Analisis", 5, List.of(matematica,fisica,ads));
-        Alumno alumno = new Alumno( "Juan", "Pérez", "12345678", List.of(matematica, fisica));
+        Alumno alumno = new Alumno( "Juan", "Pérez", "12345678", new ArrayList<>());
 
 
 
@@ -46,10 +47,10 @@ class IncripcionTest {
         alumno.agregarMateriaAprobada(matematica);
         alumno.agregarMateriaAprobada(fisica);
 
-        Inscripcion inscripcion = new Inscripcion(alumno, analisis);
+        Inscripcion inscripcion = new Inscripcion(alumno, new ArrayList<>() );
         inscripcion.agregarMateria(analisis);
 
-        Assertions.assertTrue(inscripcion.aprobada());
+        Assertions.assertFalse(inscripcion.aprobada());
     }
 
 

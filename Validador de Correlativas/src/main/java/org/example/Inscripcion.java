@@ -20,23 +20,13 @@ public class Inscripcion {
         this.materiasAinscribir = new ArrayList<>();
     }
 
-    public boolean cumpleCorrelativas () {
-        List<Materia> materiasAprobadas = alumno.getMateriasAprobadas();
-
-        for (Materia materia : materiasAinscribir) {
-            for (Materia correlativa : materia.getMateriasCorrelativas()) {
-                boolean estaAprobada = false;
-
-                for (Materia aprobada : materiasAprobadas) {
-                    if (correlativa.getNombre().equalsIgnoreCase(aprobada.getNombre())) {
-                        estaAprobada = true;
-                        break;
-                    }
-                }
-
-                if (!estaAprobada) {
-                    return false; // Si falta una correlativa, no cumple
-                }
+    public boolean cumpleTodasLasCorrelativas () {
+        /*return this.materiasAinscribir.stream().allMatch(
+                materia -> this.alumno.cumpleCorrelativas(materia)
+        );*/
+        for (Materia materia : this.materiasAinscribir) {
+            if (!alumno.cumpleCorrelativas(materia)) {
+                return false;
             }
         }
 
@@ -44,7 +34,7 @@ public class Inscripcion {
     }
 
     public boolean aprobada() {
-        return cumpleCorrelativas();
+        return cumpleTodasLasCorrelativas();
     }
 
 
