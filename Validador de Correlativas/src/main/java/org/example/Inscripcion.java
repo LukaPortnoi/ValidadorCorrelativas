@@ -1,14 +1,21 @@
 package org.example;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Incripcion {
+@Getter
+@Setter
+@AllArgsConstructor
+public class Inscripcion {
     private Alumno alumno;
     private List <Materia> materiasAinscribir;
 
 
-    public Incripcion(Alumno alumno, Materia materia) {
+    public Inscripcion(Alumno alumno, Materia materia) {
         this.alumno = alumno;
         this.materiasAinscribir = new ArrayList<>();
     }
