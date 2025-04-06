@@ -15,19 +15,12 @@ import java.util.List;
 public class Materia {
     private String nombre;
     private Integer horas;
-    //private MateriasCorrelativas materiasCorrelativas;
     private List <Materia> materiasCorrelativas;
-
-
-
 
 
     public void agregarCorrelativa(Materia ... materias) {
         Collections.addAll(this.materiasCorrelativas, materias);
 
     }
-
-
-
 
 }

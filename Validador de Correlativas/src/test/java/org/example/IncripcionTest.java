@@ -19,8 +19,6 @@ class IncripcionTest {
         Alumno alumno = new Alumno( "Juan", "Pérez", "12345678", new ArrayList<>());
 
 
-
-
         // Agrego al alumno sus materias aprobadas
         alumno.agregarMateriaAprobada(matematica);
         alumno.agregarMateriaAprobada(fisica);

@@ -15,11 +15,6 @@ public class Inscripcion {
     private List <Materia> materiasAinscribir;
 
 
-    public Inscripcion(Alumno alumno, Materia materia) {
-        this.alumno = alumno;
-        this.materiasAinscribir = new ArrayList<>();
-    }
-
     public boolean cumpleTodasLasCorrelativas () {
         /*return this.materiasAinscribir.stream().allMatch(
                 materia -> this.alumno.cumpleCorrelativas(materia)
